@@ -1,0 +1,73 @@
+.paradise {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  cursor: pointer;
+  -webkit-animation: spin 4s infinite linear; }
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%; }
+
+.title {
+  width: 90%;
+  margin: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.game-container {
+  width: 700px;
+  height: 550px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  background-color: white;
+  opacity: .80; }
+
+#instructions {
+  position: relative;
+  left: 20%;
+  top: 40%;
+  width: 600px;
+  height: auto;
+  background: white;
+  text-align: center;
+  border-style: solid;
+  border-radius: 6px;
+  border-color: red; }
+
+.start-game {
+  position: relative; }
+
+.scoreboard {
+  float: right;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  height: 550px;
+  width: 250px;
+  background-color: white;
+  opacity: .80; }
+
+h1 {
+  text-align: center; }
+
+h2 {
+  font-size: 3rem;
+  text-align: center; }
+
+p {
+  text-align: center; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+/*# sourceMappingURL=main.css.map */
