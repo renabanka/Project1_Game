@@ -1,6 +1,5 @@
 
-//variable to add points to the scoreboard. Starts at 0 and increases by 1
-
+//variable to add points to the scoreboard. Starts at 0 and increases by 1 everytime a succulent is clicked
 var points = {
   pointCounter: 0,
   addPoint: function(num) {
@@ -10,8 +9,7 @@ var points = {
   }
 };
 
-//variable to increase the level of the scoreboard. Starts at Level 1 and increase by 1 in nextLevel function below
-
+//variable to increase the level on the scoreboard. Starts at Level 1 and increase by 1 depending on nextLevel function conditions below
 var level = {
   levelCounter: 1,
   addLevel: function(num) {
@@ -22,49 +20,67 @@ var level = {
 };
 
 //function to get random min and max for succulent drop
-
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
-//function which is initiated after the "Start Game"
-
+ //function called after the "Start Game" button is clicked
 $(".start-game").click(startGame);
 
+//function for level 1
 function startGame() {
-  var num = 15;
+  var num = 10;
   while (num > 0) {
   makeSucculent();
-  setInterval(function() {
-    $('.Timer').text("00:" + Math.round((new Date - start) / 1000, 0) + " Seconds");
-    }, 1000);
   num--;
+  // setInterval(function() {
+  // $('.Timer').text(Math.round((new Date - start) / 1000, 0) + " Second");
+  // }, 1000);
   }  
+  
 }
 
+// //timer related variable
+// var start = new Date();
+
+
+//function to check how many points player has and then increase level
  function nextLevel() {
-  if (points.pointCounter > 10 && points.pointCounter < 12) {
+  if (level.levelCounter < 2 && points.pointCounter >= 11) {
     level.addLevel(1);
   }
-  else if (points.pointCounter > 20 && points.pointCounter < 22) {
+  else if (level.levelCounter < 3 && points.pointCounter >= 21) {
+    level.addLevel(1);
+  } 
+  else if (level.levelCounter < 4 && points.pointCounter >= 31) {
     level.addLevel(1);
   } 
 
-  else if (points.pointCounter > 30 && points.pointCounter < 32) {
+  else if (level.levelCounter < 5 && points.pointCounter >= 41) {
     level.addLevel(1);
-    
   } 
 
-  else if (points.pointCounter > 40 && points.pointCounter < 42) {
+  else if (level.levelCounter < 6 && points.pointCounter >= 51) {
     level.addLevel(1);
-    
   } 
+    
+  else {
+    console.log('this is working');
+    }
+}
 
-  else if (points.pointCounter > 50 && points.pointCounter < 52) {
-    level.addLevel(1);
-    
-  } 
+//increase of levels 
+ function newSucculents() {
+  if (points.pointCounter < 20 && points.pointCounter > 10) {
+    // startLevel2();
+    makeSucculentLevel2 ();
+}
+
+  else if (points.pointCounter < 30 && points.pointCounter > 20) {
+makeSucculentLevel2 ();
+makeSucculentLevel3 ();
+  }
+
   else {
     console.log('this is working');
     }
@@ -86,22 +102,31 @@ function makeSucculent() {
   var speed = getRandomInt(5000, 10000);
   
   //drop succulents in a certain way
-  succulentParadise.animate({"top": "630px"}, speed, "swing", makeSucculent);
+  succulentParadise.animate({"top": "630px"}, speed, "swing", makeSucculent)//.then(succulentParadise.animate({"top":"100px"}, speed, "swing", makeSucculent));
   
 
   //listen to clicks and remove image once clicked by user
   succulentParadise.click(succulentClick);
   function succulentClick() {
   $(this).remove();
+
   
   //add a point once clicked
   points.addPoint(1);
+
+  //check the conditions to display level name
   nextLevel();
+  newSucculents();
     }  
     }  
 
+function checkLocation ()  {
+  if($("<img class='paradise'>").position().left < 0 && $("<img class='paradise'>").position().top < 0){
+    alert("off screen");
+}
+}
 
-var start = new Date;
+
 
 
  
