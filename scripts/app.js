@@ -18,17 +18,34 @@ var level = {
     return;
   }
 };
+var flowers = [];
 
 //function to get random min and max for succulent drop
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+$('#background').hide();
+$('.title').hide();
+$('.game-container').hide();
+$('.scoreboard').hide();
+$('#results').hide();
+
+
+
  //function called after the "Start Game" button is clicked
 $(".start-game").click(startGame);
 
+
+
 //function for level 1
 function startGame() {
+$('.instructions').hide();
+$('#background').show();
+$('.title').show();
+$('.game-container').show();
+$('.scoreboard').show();
   var num = 10;
   while (num > 0) {
   makeSucculent();
@@ -104,6 +121,7 @@ function makeSucculent() {
   //add succulents to game container
   var succulentParadise = $("<img class='paradise'>");
   succulentParadise.prop("src", "images/_0012_Succulent-Paradise.png");
+  flowers.push(succulentParadise);
   $(".game-container").append(succulentParadise);
   
   //set succulent drops on x-axis referencing getRandomInt function
@@ -142,8 +160,20 @@ $('.game-container').position()
 // }
 
 
+// function displayResults() {
+//   if (level.levelCounter >= 6) {
+//     $('#results').hide();
+//   } else {
 
-
+//     $('#results').show();
+//     $('#background').hide();
+//     $('.title').hide();
+//     $('.game-container').hide();
+//     $('.scoreboard').hide();
+//     $('#restart').on('click', function(){
+//       location.reload();
+//     });
+//   };
 
  
 
