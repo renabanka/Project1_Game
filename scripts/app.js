@@ -33,34 +33,35 @@ function startGame() {
   while (num > 0) {
   makeSucculent();
   num--;
-  // setInterval(function() {
-  // $('.Timer').text(Math.round((new Date - start) / 1000, 0) + " Second");
-  // }, 1000);
+
+  setInterval(function() {
+  $('.Timer').text(Math.round((new Date - start) / 1000, 0));
+  }, 1000);
   }  
   
 }
 
-// //timer related variable
-// var start = new Date();
+//timer related variable
+var start = new Date();
 
 
 //function to check how many points player has and then increase level
  function nextLevel() {
-  if (level.levelCounter < 2 && points.pointCounter >= 11) {
+  if (level.levelCounter < 2 && points.pointCounter >= 21) {
     level.addLevel(1);
   }
-  else if (level.levelCounter < 3 && points.pointCounter >= 21) {
+  else if (level.levelCounter < 3 && points.pointCounter >= 31) {
     level.addLevel(1);
   } 
-  else if (level.levelCounter < 4 && points.pointCounter >= 31) {
-    level.addLevel(1);
-  } 
-
-  else if (level.levelCounter < 5 && points.pointCounter >= 41) {
+  else if (level.levelCounter < 4 && points.pointCounter >= 41) {
     level.addLevel(1);
   } 
 
-  else if (level.levelCounter < 6 && points.pointCounter >= 51) {
+  else if (level.levelCounter < 5 && points.pointCounter >= 51) {
+    level.addLevel(1);
+  } 
+
+  else if (level.levelCounter < 6 && points.pointCounter >= 61) {
     level.addLevel(1);
   } 
     
@@ -71,14 +72,26 @@ function startGame() {
 
 //increase of levels 
  function newSucculents() {
-  if (points.pointCounter < 20 && points.pointCounter > 10) {
+  if (points.pointCounter < 30 && points.pointCounter > 20) {
     // startLevel2();
     makeSucculentLevel2 ();
 }
 
-  else if (points.pointCounter < 30 && points.pointCounter > 20) {
+  else if (points.pointCounter < 40 && points.pointCounter > 30) {
 makeSucculentLevel2 ();
 makeSucculentLevel3 ();
+  }
+
+  else if (points.pointCounter < 50 && points.pointCounter > 40) {
+    makeSucculentLevel2 ();
+    makeSucculentLevel3 ();
+    makeSucculentLevel4 ();
+  }
+
+  else if (points.pointCounter < 75 && points.pointCounter > 50) {
+    makeSucculentLevel2 ();
+    makeSucculentLevel3 ();
+    makeSucculentLevel4 ();
   }
 
   else {
@@ -110,6 +123,7 @@ function makeSucculent() {
   function succulentClick() {
   $(this).remove();
 
+
   
   //add a point once clicked
   points.addPoint(1);
@@ -120,11 +134,13 @@ function makeSucculent() {
     }  
     }  
 
-function checkLocation ()  {
-  if($("<img class='paradise'>").position().left < 0 && $("<img class='paradise'>").position().top < 0){
-    alert("off screen");
-}
-}
+// function checkLocation ()  {
+$('.game-container').height() +
+$('.game-container').position()
+- $(window).height()
+// }
+// }
+
 
 
 

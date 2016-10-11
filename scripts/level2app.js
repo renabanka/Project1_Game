@@ -1,78 +1,103 @@
-// function startLevel2() {
-//   var num = 2;
-//   while (num > 0) {
-//   makeSucculentLevel2 ()
-//   num--;
-//   }  
-  
-// }
+
 
 function makeSucculentLevel2 () {
-  //add succulents to game container
   var succulentParadise2 = $("<img class='paradise'>");
-  succulentParadise2.prop("src", "images/_0031_Succulent-Paradise.png");
+  succulentParadise2.prop("src", "images/_0028_Succulent-Paradise.png");
   $(".game-container").append(succulentParadise2);
   
-  //set succulent drops on x-axis referencing getRandomInt function
   var xPos = getRandomInt(0, 700);
   succulentParadise2.css("left", xPos + "px");
   succulentParadise2.css("top", "-30px");
   
-  //set succulent drop speed referencing getRandomInt function
-  var speed = getRandomInt(10000, 10000);
+
+  var speed = getRandomInt(6000, 10000);
   
-  //drop succulents in a certain way
+
   succulentParadise2.animate({"top": "630px"}, speed, "swing", makeSucculent);
   
 
-  //listen to clicks and remove image once clicked by user
   succulentParadise2.click(succulentClick);
   function succulentClick() {
   $(this).remove();
   
-  //add a point once clicked
   points.addPoint(2);
-  // nextLevel();
     }  
     }  
 
-
-
-// function startLevel3() {
-//   var num = 1;
-//   while (num > 0) {
-//   makeSucculentLevel3 ()
-//   num--;
-//   }  
-  
-// }
 
 
 function makeSucculentLevel3 () {
-  //add succulents to game container
   var succulentParadise3 = $("<img class='paradise'>");
-  succulentParadise3.prop("src", "images/_0017_Succulent-Paradise.png");
+  succulentParadise3.prop("src", "images/_0011_Succulent-Paradise.png");
   $(".game-container").append(succulentParadise3);
   
-  //set succulent drops on x-axis referencing getRandomInt function
+
   var xPos = getRandomInt(0, 700);
   succulentParadise3.css("left", xPos + "px");
   succulentParadise3.css("top", "-30px");
   
-  //set succulent drop speed referencing getRandomInt function
-  var speed = getRandomInt(10000, 10000);
+
+  var speed = getRandomInt(8000, 10000);
   
-  //drop succulents in a certain way
+
   succulentParadise3.animate({"top": "630px"}, speed, "swing", makeSucculent);
   
 
-  //listen to clicks and remove image once clicked by user
   succulentParadise3.click(succulentClick);
   function succulentClick() {
   $(this).remove();
   
-  //add a point once clicked
+
   points.addPoint(3);
-  // nextLevel();
+
+    }  
+    }  
+
+
+  function makeSucculentLevel4 () {
+  var succulentParadise4 = $("<img class='paradise'>");
+  succulentParadise4.prop("src", "images/_0015_Succulent-Paradise.png");
+  $(".game-container").append(succulentParadise4);
+  
+
+  var xPos = getRandomInt(0, 700);
+  succulentParadise4.css("left", xPos + "px");
+  succulentParadise4.css("top", "-30px");
+
+  var speed = getRandomInt(10000, 10000);
+  
+
+  succulentParadise4.animate({"top": "630px"}, speed, "swing", makeSucculent);
+  
+  succulentParadise4.click(succulentClick);
+  function succulentClick() {
+  $(this).remove();
+  
+  points.addPoint(4);
+
+    }  
+    }  
+
+
+  function makeSucculentLevel5 () {
+  var succulentParadise5 = $("<img class='paradise'>");
+  succulentParadise5.prop("src", "images/_0027_Succulent-Paradise.png");
+  $(".game-container").append(succulentParadise5);
+  
+
+  var xPos = getRandomInt(0, 700);
+  succulentParadise5.css("left", xPos + "px");
+  succulentParadise5.css("top", "-30px");
+
+  var speed = getRandomInt(12000, 10000);
+  
+  succulentParadise5.animate({"top": "630px"}, speed, "swing", makeSucculent);
+  
+  succulentParadise5.click(succulentClick);
+  function succulentClick() {
+  $(this).remove();
+
+  points.addPoint(5);
+
     }  
     }  
