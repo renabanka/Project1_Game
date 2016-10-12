@@ -1,4 +1,3 @@
-
 //variable to add points to the scoreboard. Starts at 0 and increases by 1 everytime a succulent is clicked
 var points = {
   pointCounter: 0,
@@ -6,6 +5,12 @@ var points = {
     this.pointCounter += num;
     $('#point-value').text(this.pointCounter);
     return;
+
+  // detractPoints: function(num) {
+  //   this.pointCounter -- num;
+  //   $('#point-value').text(this.pointCounter);
+  //   return;
+  // }
   }
 };
 
@@ -20,17 +25,30 @@ var level = {
 };
 var flowers = [];
 
+
 //function to get random min and max for succulent drop
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
+function displayResults() {
+  if (level.levelCounter > 5 && points.pointCounter >=75) {
+    $('.results').show();
+    $('#timerResults').text();
+    $('#pointsResults').text(points.pointCounter);
+
+  }
+    else {
+
+    }
+}
+
 $('#background').hide();
 $('.title').hide();
 $('.game-container').hide();
 $('.scoreboard').hide();
-$('#results').hide();
+$('.results').hide();
 
 
 
@@ -41,11 +59,13 @@ $(".start-game").click(startGame);
 
 //function for level 1
 function startGame() {
-$('.instructions').hide();
+// $('.instructions').hide();
 $('#background').show();
 $('.title').show();
 $('.game-container').show();
 $('.scoreboard').show();
+$('.instructions').hide();
+$('#background2').hide();
   var num = 10;
   while (num > 0) {
   makeSucculent();
@@ -61,29 +81,30 @@ $('.scoreboard').show();
 //timer related variable
 var start = new Date();
 
+var flowers =[];
+// var location = [];
 
 //function to check how many points player has and then increase level
  function nextLevel() {
-  if (level.levelCounter < 2 && points.pointCounter >= 21) {
+  if (level.levelCounter < 2 && points.pointCounter >= 20) {
     level.addLevel(1);
   }
-  else if (level.levelCounter < 3 && points.pointCounter >= 31) {
+  else if (level.levelCounter < 3 && points.pointCounter >= 30) {
     level.addLevel(1);
   } 
-  else if (level.levelCounter < 4 && points.pointCounter >= 41) {
-    level.addLevel(1);
-  } 
-
-  else if (level.levelCounter < 5 && points.pointCounter >= 51) {
+  else if (level.levelCounter < 4 && points.pointCounter >= 40) {
     level.addLevel(1);
   } 
 
-  else if (level.levelCounter < 6 && points.pointCounter >= 61) {
+  else if (level.levelCounter < 5 && points.pointCounter >= 50) {
+    level.addLevel(1);
+  } 
+
+  else if (level.levelCounter < 6 && points.pointCounter >= 75) {
     level.addLevel(1);
   } 
     
   else {
-    console.log('this is working');
     }
 }
 
@@ -95,8 +116,8 @@ var start = new Date();
 }
 
   else if (points.pointCounter < 40 && points.pointCounter > 30) {
-makeSucculentLevel2 ();
-makeSucculentLevel3 ();
+  makeSucculentLevel2 ();
+  makeSucculentLevel3 ();
   }
 
   else if (points.pointCounter < 50 && points.pointCounter > 40) {
@@ -112,7 +133,6 @@ makeSucculentLevel3 ();
   }
 
   else {
-    console.log('this is working');
     }
 }
 
@@ -148,33 +168,36 @@ function makeSucculent() {
 
   //check the conditions to display level name
   nextLevel();
+   //check the conditions to create more succulents
   newSucculents();
+  //check the conditions to display results
+  displayResults();
     }  
-    }  
-
-// function checkLocation ()  {
-$('.game-container').height() +
-$('.game-container').position()
-- $(window).height()
-// }
-// }
+    } 
 
 
-// function displayResults() {
-//   if (level.levelCounter >= 6) {
-//     $('#results').hide();
-//   } else {
+function findLocation(bottomLine) {
+  for (flow in flowers) {
+    var el = flowers[flow];
+    var edge = $(el).position().top;
+    if (edge > bottomLine) {
+      console.log('one got away');
+      detractPoints(1);
+      $(el).remove();
+    }
+  }
+}
 
-//     $('#results').show();
-//     $('#background').hide();
-//     $('.title').hide();
-//     $('.game-container').hide();
-//     $('.scoreboard').hide();
-//     $('#restart').on('click', function(){
-//       location.reload();
-//     });
-//   };
+//global window.setInterval
+setInterval(function(event) {
+  var topOf = $('.game-container').position().top;
+  var height = $('.game-container').height();
+  var bottomLine = topOf + height;
+  console.log('tick tock');
+  findLocation(bottomLine);
 
- 
+}, 1000);
 
+function detractPoints(pointsNum) {
 
+}

@@ -1,5 +1,3 @@
-
-
 function makeSucculentLevel2 () {
   var succulentParadise2 = $("<img class='paradise'>");
   succulentParadise2.prop("src", "images/_0028_Succulent-Paradise.png");
@@ -28,7 +26,7 @@ function makeSucculentLevel2 () {
 
 function makeSucculentLevel3 () {
   var succulentParadise3 = $("<img class='paradise'>");
-  succulentParadise3.prop("src", "images/_0011_Succulent-Paradise.png");
+  succulentParadise3.prop("src", "images/_0017_Succulent-Paradise.png");
   $(".game-container").append(succulentParadise3);
   
 

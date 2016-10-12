@@ -25,6 +25,14 @@ overflow: hidden;
 
    }
 
+
+  #background2 {
+  position: absolute;
+  width:1450px;
+  height:900px;
+
+   }
+
 .title {
   width: 70%;
   margin: 10px;
@@ -45,14 +53,16 @@ overflow: hidden;
 .instructions {
   position: absolute;
   top: 30%;
-  width: 600px;
+  width: 550px;
   height: auto;
   background: white;
   text-align: center;
   border-style: solid;
-  border-color: black; 
+  border-color: gray; 
   padding: 30px;
-  left: 25%;}
+  left: 28%;
+  opacity: .90;
+}
 
 .results {
   position: absolute;
@@ -89,13 +99,6 @@ h2 {
 p {
   text-align: center; }
 
-/*@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(360deg); } }*/
-
-/*# sourceMappingURL=main.css.map */
 
 @-webkit-keyframes fallingSucculents {
 0% {
@@ -111,5 +114,3 @@ opacity: 0;
 -webkit-transform: translate(150px, 630px) rotateZ(360deg);
 }
 }
-
-
