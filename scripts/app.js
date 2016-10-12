@@ -1,4 +1,4 @@
-//variable to add points to the scoreboard. Starts at 0 and increases by 1 everytime a succulent is clicked
+//variable to add or subtract points to the scoreboard. Starts at 0 and increases/decreases depending on function conditions below.
 var points = {
   pointCounter: 0,
   addPoint: function(num) {
@@ -28,6 +28,8 @@ var level = {
 //variable which stores an array of the succulents that have been appended to the page
 var succulents = [];
 
+//timer related variable
+var start = new Date();
 
 //function to get random min and max for succulents location drop and speed drop
 function getRandomInt(min, max) {
@@ -67,8 +69,7 @@ function startGame() {
    }  
 }
 
-//timer related variable
-var start = new Date();
+
 
 //function to check how many points player has collected and increase levels per conditions below
  function nextLevel() {
@@ -90,7 +91,7 @@ var start = new Date();
     level.addLevel(1);
   } 
  
-  else if (points.pointCounter < 1) {
+  else if (points.pointCounter < 0) {
     $('.gameover').show();
     $('.game-container').hide();
     $('.scoreboard').hide();
@@ -126,7 +127,7 @@ var start = new Date();
     makeSucculentLevel5 ();
   }
 
-  else if (points.pointCounter < 1) {
+  else if (points.pointCounter < 0) {
     $('.gameover').show();
     $('.game-container').hide();
     $('.scoreboard').hide();
@@ -137,7 +138,6 @@ var start = new Date();
 }
 
 //function to display results once highest level is met
-
 function displayResults() {
   if (level.levelCounter > 5 && points.pointCounter >=75) {
     $('.results').show();
@@ -151,16 +151,19 @@ function displayResults() {
     }
 }
 
-//function to display game over
-
-// function gameOver () {
+// function gameover() {
 //   if (points.pointCounter < 0) {
-//     $('.gameover').show();
+//      $('.gameover').show();
+//     $('.game-container').hide();
+//     $('.scoreboard').hide();
 //   }
+//     else {
+
+//     }
 // }
 
-//master function to create succulents, call functions defined above
 
+//master function to create succulents, call functions defined above
 function makeSucculent() {
   //add succulents to game container
   var succulentParadise = $("<img class='paradise'>");
@@ -172,7 +175,7 @@ function makeSucculent() {
   var speed = getRandomInt(5000, 10000);
   
   //set succulent drops on x-axis referencing getRandomInt function
-  var xPos = getRandomInt(0, 650);
+  var xPos = getRandomInt(0, 480);
   succulentParadise.css("left", xPos + "px");
   succulentParadise.css("top", "-30px");
   
@@ -192,7 +195,6 @@ function makeSucculent() {
     newSucculents();
     //check the conditions to display results
     displayResults();
-    gameOver ();
   }  
 } 
 
@@ -202,9 +204,9 @@ function makeSucculentLevel2 () {
   succulentParadise2.prop("src", "images/_0028_Succulent-Paradise.png");
   $(".game-container").append(succulentParadise2);
   
-  var xPos = getRandomInt(0, 700);
+  var xPos = getRandomInt(0, 480);
   succulentParadise2.css("left", xPos + "px");
-  succulentParadise2.css("top", "-30px");
+  succulentParadise2.css("top", "0px");
   
 
   var speed = getRandomInt(6000, 10000);
@@ -229,9 +231,9 @@ function makeSucculentLevel3 () {
   $(".game-container").append(succulentParadise3);
   
 
-  var xPos = getRandomInt(0, 700);
+  var xPos = getRandomInt(0, 480);
   succulentParadise3.css("left", xPos + "px");
-  succulentParadise3.css("top", "-30px");
+  succulentParadise3.css("top", "10px");
   
 
   var speed = getRandomInt(7000, 10000);
@@ -257,9 +259,9 @@ function makeSucculentLevel3 () {
   $(".game-container").append(succulentParadise4);
   
 
-  var xPos = getRandomInt(0, 700);
+  var xPos = getRandomInt(0, 480);
   succulentParadise4.css("left", xPos + "px");
-  succulentParadise4.css("top", "-30px");
+  succulentParadise4.css("top", "20px");
 
   var speed = getRandomInt(8500, 10000);
   
@@ -282,9 +284,9 @@ function makeSucculentLevel3 () {
   $(".game-container").append(succulentParadise5);
   
 
-  var xPos = getRandomInt(0, 700);
+  var xPos = getRandomInt(0, 480);
   succulentParadise5.css("left", xPos + "px");
-  succulentParadise5.css("top", "-30px");
+  succulentParadise5.css("top", "30px");
 
   var speed = getRandomInt(9000, 10000);
   
@@ -320,6 +322,7 @@ setInterval(function(event) {
   var bottomLine = topOf + height;
   console.log('tick tock');
   findLocation(bottomLine);
+  newSucculents()
 
 }, 1000);
 

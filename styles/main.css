@@ -134,3 +134,98 @@ opacity: 0;
 -webkit-transform: translate(150px, 630px) rotateZ(360deg);
 }
 }
+
+
+
+
+@media (max-width: 480px) {
+  .game-container {
+  width: 500px;
+  height: 550px;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  background-color: white;
+  opacity: .75; 
+  right: 8%;
+  top: -650px;
+
+  } 
+
+.scoreboard {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  height: 550px;
+  width: 100px;
+  background-color: white;
+  top: -100px;
+  right:80%;
+/*  visibility: hidden; */
+}
+.paradise {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  cursor: pointer;
+-webkit-animation: fallingSucculents 20s infinite linear;
+-moz-animation: fallingSucculents 20s infinite linear;
+}
+
+.instructions {
+  top: 20px;
+  right:8%;
+  left:8%;
+  width: auto;
+  height: auto;
+  background: white;
+  text-align: center;
+  border-style: solid;
+  border-color: gray; 
+  opacity: .90;
+}
+
+.results {
+  top: 20px;
+  right:8%;
+  left:8%;
+  width: auto;
+  height: auto;
+  background: white;
+  text-align: center;
+  border-style: solid;
+  border-color: black; 
+}
+
+.gameover {
+  top: 20px;
+  right:8%;
+  left:8%;
+  width: auto;
+  height: auto;
+  background: white;
+  text-align: center;
+  border-style: solid;
+  border-color: black; 
+}
+
+
+.title {
+  width: 70%;
+  margin: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  visibility: hidden; 
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 550px;
+
+ 
+}
+}
