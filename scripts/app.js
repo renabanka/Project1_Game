@@ -41,7 +41,7 @@ $('.title').hide();
 $('.game-container').hide();
 $('.scoreboard').hide();
 $('.results').hide();
-
+$('.gameover').hide();
 
  //event listener to call function after "Start Game" button is clicked
 $(".start-game").click(startGame);
@@ -89,13 +89,16 @@ var start = new Date();
   else if (level.levelCounter < 6 && points.pointCounter >= 75) {
     level.addLevel(1);
   } 
-
-  else if (level.levelCounter > 0 && points.pointCounter < 0) {
-    console.log('gameover');
-  } 
-    
-  else {
+ 
+  else if (points.pointCounter < 1) {
+    $('.gameover').show();
+    $('.game-container').hide();
+    $('.scoreboard').hide();
+   
     }
+  else {
+  }
+
 }
 
 //increase of levels 
@@ -123,6 +126,12 @@ var start = new Date();
     makeSucculentLevel5 ();
   }
 
+  else if (points.pointCounter < 1) {
+    $('.gameover').show();
+    $('.game-container').hide();
+    $('.scoreboard').hide();
+  }
+
   else {
   }
 }
@@ -134,11 +143,21 @@ function displayResults() {
     $('.results').show();
     $('#timerResults').text();
     $('#pointsResults').text(points.pointCounter);
+    $('.game-container').hide();
+    $('.scoreboard').hide();
   }
     else {
 
     }
 }
+
+//function to display game over
+
+// function gameOver () {
+//   if (points.pointCounter < 0) {
+//     $('.gameover').show();
+//   }
+// }
 
 //master function to create succulents, call functions defined above
 
@@ -173,8 +192,112 @@ function makeSucculent() {
     newSucculents();
     //check the conditions to display results
     displayResults();
+    gameOver ();
   }  
 } 
+
+
+function makeSucculentLevel2 () {
+  var succulentParadise2 = $("<img class='paradise'>");
+  succulentParadise2.prop("src", "images/_0028_Succulent-Paradise.png");
+  $(".game-container").append(succulentParadise2);
+  
+  var xPos = getRandomInt(0, 700);
+  succulentParadise2.css("left", xPos + "px");
+  succulentParadise2.css("top", "-30px");
+  
+
+  var speed = getRandomInt(6000, 10000);
+  
+
+  succulentParadise2.animate({"top": "630px"}, speed, "swing", makeSucculent);
+  
+
+  succulentParadise2.click(succulentClick);
+  function succulentClick() {
+  $(this).remove();
+  
+  points.addPoint(2);
+    }  
+    }  
+
+
+
+function makeSucculentLevel3 () {
+  var succulentParadise3 = $("<img class='paradise'>");
+  succulentParadise3.prop("src", "images/_0017_Succulent-Paradise.png");
+  $(".game-container").append(succulentParadise3);
+  
+
+  var xPos = getRandomInt(0, 700);
+  succulentParadise3.css("left", xPos + "px");
+  succulentParadise3.css("top", "-30px");
+  
+
+  var speed = getRandomInt(7000, 10000);
+  
+
+  succulentParadise3.animate({"top": "630px"}, speed, "swing", makeSucculent);
+  
+
+  succulentParadise3.click(succulentClick);
+  function succulentClick() {
+  $(this).remove();
+  
+
+  points.addPoint(3);
+
+    }  
+    }  
+
+
+  function makeSucculentLevel4 () {
+  var succulentParadise4 = $("<img class='paradise'>");
+  succulentParadise4.prop("src", "images/_0015_Succulent-Paradise.png");
+  $(".game-container").append(succulentParadise4);
+  
+
+  var xPos = getRandomInt(0, 700);
+  succulentParadise4.css("left", xPos + "px");
+  succulentParadise4.css("top", "-30px");
+
+  var speed = getRandomInt(8500, 10000);
+  
+
+  succulentParadise4.animate({"top": "630px"}, speed, "swing", makeSucculent);
+  
+  succulentParadise4.click(succulentClick);
+  function succulentClick() {
+  $(this).remove();
+  
+  points.addPoint(4);
+
+    }  
+    }  
+
+
+  function makeSucculentLevel5 () {
+  var succulentParadise5 = $("<img class='paradise'>");
+  succulentParadise5.prop("src", "images/_0027_Succulent-Paradise.png");
+  $(".game-container").append(succulentParadise5);
+  
+
+  var xPos = getRandomInt(0, 700);
+  succulentParadise5.css("left", xPos + "px");
+  succulentParadise5.css("top", "-30px");
+
+  var speed = getRandomInt(9000, 10000);
+  
+  succulentParadise5.animate({"top": "630px"}, speed, "swing", makeSucculent);
+  
+  succulentParadise5.click(succulentClick);
+  function succulentClick() {
+  $(this).remove();
+
+  points.addPoint(5);
+
+    }  
+    }  
 
 //function to check the location of the succulents
 function findLocation(bottomLine) {

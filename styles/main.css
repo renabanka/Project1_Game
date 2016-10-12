@@ -76,6 +76,21 @@ overflow: hidden;
   left: 25%;
 }
 
+.gameover {
+  position: absolute;
+  top: 30%;
+  width: 600px;
+  height: auto;
+  background: white;
+  text-align: center;
+  border-style: solid;
+  border-color: black; 
+  padding: 30px;
+  left: 25%;
+}
+
+
+
 .start-game {
   position: relative; 
 }
