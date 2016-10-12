@@ -90,7 +90,7 @@ var start = new Date();
     level.addLevel(1);
   } 
 
-  else if (level.levelCounter > 0 && points.pointCounter < -1) {
+  else if (level.levelCounter > 0 && points.pointCounter < 0) {
     console.log('gameover');
   } 
     

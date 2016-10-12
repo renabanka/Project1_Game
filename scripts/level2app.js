@@ -35,7 +35,7 @@ function makeSucculentLevel3 () {
   succulentParadise3.css("top", "-30px");
   
 
-  var speed = getRandomInt(8000, 10000);
+  var speed = getRandomInt(7000, 10000);
   
 
   succulentParadise3.animate({"top": "630px"}, speed, "swing", makeSucculent);
@@ -62,7 +62,7 @@ function makeSucculentLevel3 () {
   succulentParadise4.css("left", xPos + "px");
   succulentParadise4.css("top", "-30px");
 
-  var speed = getRandomInt(10000, 10000);
+  var speed = getRandomInt(8500, 10000);
   
 
   succulentParadise4.animate({"top": "630px"}, speed, "swing", makeSucculent);
@@ -87,7 +87,7 @@ function makeSucculentLevel3 () {
   succulentParadise5.css("left", xPos + "px");
   succulentParadise5.css("top", "-30px");
 
-  var speed = getRandomInt(12000, 10000);
+  var speed = getRandomInt(9000, 10000);
   
   succulentParadise5.animate({"top": "630px"}, speed, "swing", makeSucculent);
   
