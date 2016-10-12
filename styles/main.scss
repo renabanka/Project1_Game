@@ -13,7 +13,6 @@ overflow: hidden;
   cursor: pointer;
 -webkit-animation: fallingSucculents 20s infinite linear;
 -moz-animation: fallingSucculents 20s infinite linear;
-
 }
 
 #background {
@@ -22,15 +21,22 @@ overflow: hidden;
   left: 0;
   min-width: 100%;
   min-height: 100%;
+}
 
-   }
+
+#background2 {
+  position: absolute;
+  width:1450px;
+  height:900px;
+}
 
 .title {
   width: 70%;
   margin: 10px;
   display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto; 
+}
 
 .game-container {
   width: 700px;
@@ -40,19 +46,21 @@ overflow: hidden;
   overflow: hidden;
   float: left;
   background-color: white;
-  opacity: .90; }
+  opacity: .90; 
+}
 
 .instructions {
   position: absolute;
   top: 30%;
-  width: 600px;
+  width: 550px;
   height: auto;
   background: white;
   text-align: center;
   border-style: solid;
-  border-color: black; 
+  border-color: gray; 
   padding: 30px;
-  left: 25%;
+  left: 28%;
+  opacity: .90;
 }
 
 .results {
@@ -65,10 +73,12 @@ overflow: hidden;
   border-style: solid;
   border-color: black; 
   padding: 30px;
-  left: 25%;}
+  left: 25%;
+}
 
 .start-game {
-  position: relative; }
+  position: relative; 
+}
 
 .scoreboard {
   float: right;
@@ -78,17 +88,21 @@ overflow: hidden;
   height: 550px;
   width: 250px;
   background-color: white;
-  opacity: .90; }
+  opacity: .90; 
+}
 
 h1 {
-  text-align: center; }
+  text-align: center; 
+}
 
 h2 {
   font-size: 3rem;
-  text-align: center; }
+  text-align: center; 
+}
 
 p {
-  text-align: center; }
+  text-align: center; 
+}
 
 
 @-webkit-keyframes fallingSucculents {
